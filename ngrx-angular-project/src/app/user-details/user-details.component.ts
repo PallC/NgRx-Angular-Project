@@ -14,21 +14,23 @@ export class UserDetailsComponent implements OnInit {
   public userPosts: any;
   public userDetails: any;
   private allUsersDetails: any;
+  public isDataLoaded: boolean;
 
-  constructor(private userDataService: UserDataService, private route: ActivatedRoute) { }
+  constructor(private userDataService: UserDataService, private route: ActivatedRoute) { 
+    this.isDataLoaded = false;
+  }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.getUserPosts(this.id);
     this.getUserDetails(this.id);
+    this.getUserPosts(this.id);
   }
 
   public getUserPosts(id: number) {
     this.userDataService.getPosts().subscribe(data => {
       this.allPosts = data;
-      console.log('data '+this.allPosts);
       this.userPosts = this.allPosts.filter(item => item.userId == id);
-      console.log('userPosts '+ this.userPosts);
+      this.isDataLoaded = true;
     });
   }
 
@@ -39,8 +41,8 @@ export class UserDetailsComponent implements OnInit {
       this.allUsersDetails.forEach(function(item) {
         item.id == id ? self.userDetails = item : '';
       });
-      console.log('userDetails '+this.userDetails);
     });
+    this.isDataLoaded = true;
   }
 
 }

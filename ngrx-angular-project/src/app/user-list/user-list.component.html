@@ -1,9 +1,9 @@
 <h4>List of Users</h4>
 <div *ngFor="let user of userDetails; let i=index">
-  <span >{{i+1}}.</span> <a routerLink='/user/{{user.id}}'>{{user.name}}</a>
+  <span >{{i+1}}. </span> <a routerLink='/user/{{user.id}}'>{{user.name}}</a>
 </div>
 <div *ngFor="let user of users$ | async; let i=index">
-  <span >{{i+11}}.</span> <a routerLink='/user/{{user.id}}'>{{user.name}}</a>
+  <span >{{i+11}}. </span> <a routerLink='/user/{{user.id}}'>{{user.name}}</a>
 </div>
 <h4>Add New User</h4>
 <input #box >

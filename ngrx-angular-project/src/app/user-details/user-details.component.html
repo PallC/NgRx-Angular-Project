@@ -1,17 +1,19 @@
-<div>Username: {{userDetails.username}}</div>
-<div>Website: <a>{{userDetails.website}}</a></div>
-<h3>Name: {{userDetails.name}}</h3>
-<div class="company">{{userDetails.company.name}}</div>
-<div class="company">{{userDetails.company.catchPhrase}}</div>
-<div>Phone: {{userDetails.phone}}</div>
-<div>Email: {{userDetails.email}}</div>
-<div>Address: {{userDetails.address.suite}} {{userDetails.address.street}},
-    {{userDetails.address.city}} {{userDetails.address.zipcode}}
-</div>
+<div *ngIf="isDataLoaded">
+    <div>Username: {{userDetails.username}}</div>
+    <div>Website: <a>{{userDetails.website}}</a></div>
+    <h3>Name: {{userDetails.name}}</h3>
+    <div class="company">{{userDetails.company.name}}</div>
+    <div class="company">{{userDetails.company.catchPhrase}}</div>
+    <div>Phone: {{userDetails.phone}}</div>
+    <div>Email: {{userDetails.email}}</div>
+    <div>Address: {{userDetails.address.suite}} {{userDetails.address.street}},
+        {{userDetails.address.city}} {{userDetails.address.zipcode}}
+    </div>
 
-<h2>Posts</h2>
-<app-add-posts></app-add-posts>
-<div *ngFor="let post of userPosts">
-   <div class="title">{{post.title}}</div>
-   <div class="lower-space">{{post.body}}</div>
+    <h2>Posts</h2>
+    <app-add-posts></app-add-posts>
+    <div *ngFor="let post of userPosts">
+        <div class="title">{{post.title}}</div>
+        <div class="lower-space">{{post.body}}</div>
+    </div>
 </div>
