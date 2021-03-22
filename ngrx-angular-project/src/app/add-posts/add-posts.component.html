@@ -1,0 +1,15 @@
+<div>
+    <h4>Add a Post!</h4>
+    <span class="title">Title</span>
+    <input #title>
+    <div class="text-area-container">
+        <textarea class="text-area" #box></textarea>
+        <button class="save-button" (click)="addPost(title.value, box.value)">Save</button>
+    </div>
+    <div *ngFor="let post of posts$ | async">
+        <div class="post-title">{{post.title}}</div>
+        <div class="post-body">{{post.body}}</div>
+    </div>
+</div>
+
+
